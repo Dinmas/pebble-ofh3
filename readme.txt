@@ -1,7 +1,6 @@
 
 02/24/16 Created 
 
-This is a simple hello-world to sort a simple array on pebble. 
+Simple hello world repo to mess around with Git  
 
-Awaits back button input after sort. 
-
+Holds learning C for pebble apps. 
