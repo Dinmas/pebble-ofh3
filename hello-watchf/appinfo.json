@@ -1,0 +1,19 @@
+{
+  "uuid": "93d88f52-f3da-432f-82a1-0138434046f6",
+  "shortName": "hello-watchf",
+  "longName": "hello-watchf",
+  "companyName": "Dinmas",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt", "chalk"],
+  "enableMultiJS": true,
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
