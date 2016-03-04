@@ -1,6 +1,6 @@
 {
   "uuid": "93d88f52-f3da-432f-82a1-0138434046f6",
-  "shortName": "hello-watchf",
+  "shortName": "Babby's First Face",
   "longName": "hello-watchf",
   "companyName": "Dinmas",
   "versionLabel": "1.0",
@@ -14,6 +14,14 @@
     "dummy": 0
   },
   "resources": {
-    "media": []
+    "media": [
+    {
+        "type": "font",
+        "name": "FONT_INCONSOLATA_REGULAR_36",
+        "file": "fonts/Inconsolata-Regular.ttf",
+        "compatibility":"2.7"
+    }
+]
+        
   }
 }
