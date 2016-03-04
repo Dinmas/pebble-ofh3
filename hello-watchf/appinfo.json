@@ -21,6 +21,12 @@
         "file": "fonts/Inconsolata-Regular.ttf",
         "compatibility":"2.7"
     }
+    { 
+        "type":"bitmap",
+        "name":"OFH3",
+        "file":"img/ofh3.png",
+    }
+    
 ]
         
   }
