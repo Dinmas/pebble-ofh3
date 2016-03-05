@@ -1,11 +1,11 @@
 {
   "uuid": "93d88f52-f3da-432f-82a1-0138434046f6",
-  "shortName": "Babby's First Face",
-  "longName": "hello-watchf",
+  "shortName": "OFH3",
+  "longName": "OFH3 Watchface",
   "companyName": "Dinmas",
   "versionLabel": "1.0",
   "sdkVersion": "3",
-  "targetPlatforms": ["aplite", "basalt", "chalk"],
+  "targetPlatforms": ["aplite", "basalt"],
   "enableMultiJS": true,
   "watchapp": {
     "watchface": true
@@ -20,11 +20,17 @@
         "name": "FONT_INCONSOLATA_REGULAR_36",
         "file": "fonts/Inconsolata-Regular.ttf",
         "compatibility":"2.7"
-    }
+    },
     { 
         "type":"bitmap",
-        "name":"OFH3",
-        "file":"img/ofh3.png",
+        "name":"IMG_OFH3",
+        "file":"img/ofh3.png"
+    },
+    {
+        "type": "font",
+        "name": "FONT_INCONSOLATA_REGULAR_10",
+        "file": "fonts/Inconsolata-Regular.ttf",
+        "compatibility":"2.7"
     }
     
 ]
