@@ -34,3 +34,5 @@
 #tmp files
 *.kate-swp
 *.lock*
+
+build/

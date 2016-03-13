@@ -22,16 +22,17 @@
         "compatibility":"2.7"
     },
     { 
-        "type":"bitmap",
+        "type":"png",
         "name":"IMG_OFH3",
         "file":"img/ofh3.png"
     },
     {
         "type": "font",
-        "name": "FONT_INCONSOLATA_REGULAR_10",
-        "file": "fonts/Inconsolata-Regular.ttf",
+        "name": "FONT_INCONSOLATA_BOLD_16",
+        "file": "fonts/Inconsolata-Bold.ttf",
         "compatibility":"2.7"
     }
+    
     
 ]
         
