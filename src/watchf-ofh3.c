@@ -31,18 +31,24 @@ static void time_update() {
     time_t temp = time(NULL);
     struct tm *tick_time = localtime(&temp);
     
-    static char s_buffer[8];        
-    
-    strftime(s_buffer, sizeof(s_buffer), clock_is_24h_style() ?
-                                            "%H:%M" : "%I:%M", tick_time);
-    
-    
-    text_layer_set_text(s_time_layer, s_buffer);   
-    
-    if ((s_buffer[0] = '0'))
-        date_update();
-    
-    
+    static char s_buffer[10];   
+         
+    if (clock_is_24h_style()) {
+        
+        strftime(s_buffer, sizeof(s_buffer),"%H:%M", tick_time);
+        if (s_buffer[0] == '0' && s_buffer[1] == '0') {
+            date_update();
+        }
+    }
+    else { 
+        strftime(s_buffer, sizeof(s_buffer),"%l:%M%p", tick_time);
+        if ((s_buffer[0] == '1' && s_buffer[1] == '2' && s_buffer[3] == '0' && s_buffer[4] == '0')) {
+            date_update();
+        }
+    }
+text_layer_set_text(s_time_layer, s_buffer); 
+
+     
 }
 
 
@@ -123,6 +129,7 @@ static void init() {
     
     //Make sure time is displayed from the start
     time_update();
+    date_update();
     
     
     
