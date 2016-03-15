@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Settings Page</title>
+    </head>
+    <body>
+        <p> This is an example configuration page. </p>
+        
+        <input id='app_key_date_string' type='text' value='03/15/16'>
+            Date String
+        </input><br>             
+        <input id='app_key_debug' type='text' value='Woooooo'>
+            Debug test
+        </input><br>    
+        <input id='submit_button' type='button' value='save'><br>
+                 
+        <script>
+            //Get a handle to the button's HTML element
+            var submitButton = document.getElementById('submit_button'); 
+
+            //add a click listener 
+            submitButton.addEventListener('click',function() {
+            //get config data from UI 
+            var dateString = document.getElementById('app_key_date_string');
+            var debugString = document.getElementById('app_key_debug');
+            
+            //Making options object to pass. parseInt('foo',16) converts text to hexadecimal for C 
+            var options = {
+                'date_string': parseInt(dateString.value,16),
+                'debug': parseInt(debug.value,16)
+            };
+            
+            //Determine correct return URL (emulator vs real watch...?) Included in pebble tutorial
+            function getQueryParam(variable,defaultValue) {
+            var query / location.search.substring(1);
+            var vars / query.split('&');
+            for (var i = 0; i var.length; i++) {
+                var pair = vars[i].split('=');
+                if pair[0] === variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return defaultValue || false;
+        }
+        var return_to = getQueryParam('return_to', 'pebblejs://close#')
+        
+        //Encode and send the data when page closes
+        document.location = return_to + encodeURIComponent(JSON.stringify(options));
+        }
+        
+        </script>
+    
+    </body>
+</html>
