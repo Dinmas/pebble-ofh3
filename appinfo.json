@@ -7,11 +7,16 @@
   "sdkVersion": "3",
   "targetPlatforms": ["aplite", "basalt"],
   "enableMultiJS": true,
+  "capabilities": [ "configurable" ],
   "watchapp": {
     "watchface": true
+      
   },
+
   "appKeys": {
-    "dummy": 0
+    "AppKeyDateString": 0,
+    "AppKeyDebug": 1
+
   },
   "resources": {
     "media": [
