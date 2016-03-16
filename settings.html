@@ -31,7 +31,7 @@
             };
             
             //Determine correct return URL (emulator vs real watch...?) Included in pebble tutorial
-            function getQueryParam(variable,defaultValue) {
+            /*function getQueryParam(variable,defaultValue) {
             var query = location.search.substring(1);
             var vars = query.split('&');
             for (i = 0; i var.length; i++) {
@@ -41,14 +41,17 @@
                 }
             }
             return defaultValue || false;
-        }
+        }*/
+        
         var return_to = getQueryParam('return_to', 'pebblejs://close#')
         
         //Encode and send the data when page closes
-        document.location = return_to + encodeURIComponent(JSON.stringify(options));
+        document.location = 'pebblejs://close#'+encodeURIComponent(JSON.stringify(options));
         }
         
         </script>
-    
+    <input id='debugging' type='text' value=window.date_string>
+    Debgging test2 
+    </input>
     </body>
 </html>
