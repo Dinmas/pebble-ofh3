@@ -34,7 +34,7 @@
             function getQueryParam(variable,defaultValue) {
             var query = location.search.substring(1);
             var vars = query.split('&');
-            for (var i = 0; i var.length; i++) {
+            for (i = 0; i var.length; i++) {
                 var pair = vars[i].split('=');
                 if pair[0] === variable) {
                     return decodeURIComponent(pair[1]);
