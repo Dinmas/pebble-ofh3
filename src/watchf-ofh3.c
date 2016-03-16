@@ -131,6 +131,7 @@ static void init() {
     //Registers handling function for incoming messages and opens API to accept messages from phone.
     app_message_register_inbox_received(inbox_recieved_handler);
     app_message_open(64,64);
+    printf("AppMessage API open!");
     
     //Create main window element and assign to pointer
     s_main_window = window_create();  

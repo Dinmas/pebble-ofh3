@@ -33,6 +33,6 @@
 
 #tmp files
 *.kate-swp
-*.lock*
+*.lock-waf_linux2_build
 
-build/
+**build

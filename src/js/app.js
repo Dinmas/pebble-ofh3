@@ -9,20 +9,17 @@ Pebble.addEventListener('showConfiguration', function() {
 });
 
 Pebble.addEventListener('webviewclosed', function(e) {
-  // Decode the user's preferences
-    console.log(e.response);
     var configData = JSON.parse(decodeURIComponent(e.response));
-  // Send to the watchapp via AppMessage
+    
     var dict = {
     'AppKeyDateString': configData.date_string,
     'AppKeyDebug': configData.debug        
-    }
-    
+    };
+        
+    Pebble.sendAppMessage(dict,function() {
+      console.log('Config sent successfully!');
+    }, function(e) {
+      console.log('Failed to send config!');
+    });
 });
-
-// Send to the watchapp
-Pebble.sendAppMessage(dict, function() {
-  console.log('Config data sent successfully!');
-}, function(e) {
-  console.log('Error sending config data!');
-});
+   
