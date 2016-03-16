@@ -10,6 +10,7 @@ Pebble.addEventListener('showConfiguration', function() {
 
 Pebble.addEventListener('webviewclosed', function(e) {
   // Decode the user's preferences
+    console.log(e.response);
     var configData = JSON.parse(decodeURIComponent(e.response));
   // Send to the watchapp via AppMessage
     var dict = {
