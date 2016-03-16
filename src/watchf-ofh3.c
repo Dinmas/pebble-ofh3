@@ -1,4 +1,5 @@
 #include <pebble.h>
+#include "settings.h"
 
 
 static Window *s_main_window;
@@ -9,20 +10,37 @@ static GFont s_cal_font;
 static BitmapLayer *s_background_layer;
 static GBitmap *s_background_bitmap;
 
-
-
+static char next_trail[25];
+static char next_date [10];
+static char debug_char[25];
+ 
+static void inbox_recieved_handler(DictionaryIterator *iter, void *context) {
+    //Read box 1 
+    Tuple *date_string_t = dict_find(iter,AppKeyDateString); 
+    if (date_string_t) {
+        strcpy(next_trail,date_string_t->value->cstring);
+    }
+    
+    Tuple *debug_t = dict_find(iter,AppKeyDebug);
+    if (debug_t) {
+        strcpy(debug_char,debug_t->value->cstring);
+        strcat(next_trail,debug_char);
+    }
+    
+    text_layer_set_text(s_cal_layer,next_trail);
+} 
 
 static void date_update() {
     time_t temp = time(NULL);
     struct tm *tick_time = localtime(&temp);
   
-    static char next_trail[25];
-    static char next_date [10];
     
-   strftime(next_date, sizeof(next_date), "%D", tick_time);
+    strftime(next_date, sizeof(next_date), "%D", tick_time);
 
-    strcpy(next_trail,"Next trail on: ");
+    
+    strcpy(next_trail,"Next trail on: ");   
     strcat(next_trail, next_date);
+ 
     text_layer_set_text(s_cal_layer, next_trail);   
 }
 
@@ -109,6 +127,11 @@ static void main_window_unload (Window *window) {
 }
 
 static void init() {
+    
+    //Registers handling function for incoming messages and opens API to accept messages from phone.
+    app_message_register_inbox_received(inbox_recieved_handler);
+    app_message_open(64,64);
+    
     //Create main window element and assign to pointer
     s_main_window = window_create();  
         
@@ -129,7 +152,7 @@ static void init() {
     
     //Make sure time is displayed from the start
     time_update();
-    date_update();
+    //date_update();
     
     
     
