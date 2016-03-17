@@ -4,7 +4,7 @@ Pebble.addEventListener('ready', function() {
 });
 
 Pebble.addEventListener('showConfiguration', function() {
-    var url = 'http://dinmas.github.io/pebble-ofh3/settings.html';
+    var url = 'https://dinmas.github.io/pebble-ofh3/settings.html';
     Pebble.openURL(url);
 });
 
