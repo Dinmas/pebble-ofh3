@@ -1,25 +1,12 @@
-Pebble.addEventListener('ready', function() {
-  // PebbleKit JS is ready!
-  console.log('PebbleKit JS ready!');
-});
+Pebble.addEventListener('ready', ready); 
 
 Pebble.addEventListener('showConfiguration', function() {
     var url = 'https://dinmas.github.io/pebble-ofh3/settings2.html';
     Pebble.openURL(url);
 });
 
-Pebble.addEventListener('webviewclosed', function(e) {
-    var configData = JSON.parse(decodeURIComponent(e.response));
-    
-    var dict = {
-    'AppKeyDateString': configData.date_string,
-    'AppKeyDebug': configData.debug        
-    };
-        
-    Pebble.sendAppMessage(dict,function() {
-      console.log('Config sent successfully!');
-    }, function(e) {
-      console.log('Failed to send config!');
-    });
-});
-   
+function ready(e) {
+    console.log('Pebble JS is ready.');
+    apirequest= require('apirequest');
+    console.log("app.js" + apirequest.nextTrailFetch());
+};

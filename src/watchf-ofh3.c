@@ -2,6 +2,7 @@
 #include "settings.h"
 
 
+
 static Window *s_main_window;
 static TextLayer *s_time_layer;
 static TextLayer *s_cal_layer;
@@ -129,7 +130,7 @@ static void main_window_unload (Window *window) {
 static void init() {
     
     //Registers handling function for incoming messages and opens API to accept messages from phone.
-    app_message_register_inbox_received(inbox_recieved_handler);
+app_message_register_inbox_received(inbox_recieved_handler);    
     app_message_open(64,64);
     printf("AppMessage API open!");
     
